@@ -3,23 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dispersão Luminosa e Refração da Luz</title>
+  <title>Dispersão Luminosa e Refração da Luz | Estudo Óptico</title>
   <link rel="stylesheet" href="style.css">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <header class="navbar">
     <div class="container nav-container">
-      <span class="logo">Óptica Física</span>
+      <div class="brand">
+        <span class="brand-title">Óptica Física</span>
+        <span class="brand-sub">Fenômenos Luminosos</span>
+      </div>
       <nav>
         <ul>
-          <li><a href="#conceito">O Conceito</a></li>
-          <li><a href="#imagem-secao">Esquema</a></li>
+          <li><a href="#introducao">Introdução</a></li>
+          <li><a href="#fundamentacao">Fundamentação</a></li>
+          <li><a href="#experimento">Experimento</a></li>
           <li><a href="#simulacao">Simulador</a></li>
-          <li><a href="#aplicacoes">Aplicações</a></li>
+          <li><a href="#espectro">Espectro Visível</a></li>
         </ul>
       </nav>
     </div>
@@ -27,85 +32,165 @@
 
   <section class="hero">
     <div class="container hero-content">
-      <p class="tagline">Física & Fenômenos Ópticos</p>
+      <span class="badge">Pesquisa & Demonstração Científica</span>
       <h1>Dispersão Luminosa por Refração da Luz</h1>
-      <p class="subtitle">Uma análise elegante do comportamento da luz policromática ao atravessar meios materiais com diferentes índices de refração.</p>
+      <p class="subtitle">
+        Análise detalhada sobre a decomposição da luz policromática ao atravessar meios materiais com diferentes índices de refração.
+      </p>
     </div>
   </section>
 
   <main class="container">
 
-    <section id="conceito" class="card-section">
+    <section id="introducao" class="card-section">
       <div class="section-header">
-        <h2>01. O Conceito Fundamental</h2>
+        <span class="section-num">01</span>
+        <h2>Introdução ao Fenômeno</h2>
         <div class="divider"></div>
       </div>
       <div class="grid-2col">
         <div>
-          <h3>O que é Refração?</h3>
-          <p>A <strong>refração</strong> ocorre quando a luz muda de meio de propagação (como do ar para o vidro), sofrendo uma variação na sua velocidade e, consequentemente, uma desviação no seu trajeto original.</p>
-          <p>Esse comportamento é regido pela <em>Lei de Snell-Descartes</em>:</p>
-          <div class="formula-box">
-            <code>n₁ · sin(θ₁) = n₂ · sin(θ₂)</code>
-          </div>
+          <h3>O que é a Refração?</h3>
+          <p>
+            A <strong>refração da luz</strong> é um fenômeno óptico que ocorre quando a luz passa de um meio de propagação para outro com índice de refração diferente (por exemplo, do ar para o vidro). 
+          </p>
+          <p>
+            Ao mudar de meio, a **velocidade da onda luminosa se altera**, provocando um desvio em sua trajetória original, exceto quando a incidência ocorre exatamente a 90° em relação à superfície.
+          </p>
         </div>
         <div>
-          <h3>A Origem da Dispersão</h3>
-          <p>A luz branca (policromática) é composta por uma mistura de diversas frequências (cores). Cada cor possui um comprimento de onda diferente e interage de forma única com o material:</p>
-          <ul class="styled-list">
-            <li><strong>Luz Vermelha:</strong> Menor frequência, maior velocidade no meio, sofrendo <em>menor desvio</em>.</li>
-            <li><strong>Luz Violeta:</strong> Maior frequência, menor velocidade no meio, sofrendo <em>maior desvio</em>.</li>
-          </ul>
+          <h3>A Natureza da Luz Branca</h3>
+          <p>
+            A luz emitida pelo Sol ou por lâmpadas incandescentes é chamada de <strong>luz policromática (ou luz branca)</strong>. Ela não é uma cor única, mas sim a junção de todas as cores do espectro visível.
+          </p>
+          <p>
+            Quando a luz branca sofre refração em um prisma, cada cor desvia em um ângulo ligeiramente diferente. Esse processo de separação das cores é denominado <strong>dispersão luminosa</strong>.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="imagem-secao" class="card-section highlight-section">
+    <section id="experimento" class="card-section highlight-section">
       <div class="section-header">
-        <h2>02. Demonstração Visual do Experimento</h2>
+        <span class="section-num">02</span>
+        <h2>Registro do Experimento</h2>
         <div class="divider"></div>
       </div>
+      <p class="section-desc">
+        Abaixo está o esquema demonstrativo da refração e decomposição da luz em um meio prismático.
+      </p>
       
       <div class="image-wrapper">
-        <img src="imagem-experimento.jpg" alt="Esquema da Dispersão Luminosa em um Prisma" class="featured-image">
-        <p class="caption">Figura 1: Representação gráfica do desfeixe da luz branca ao atravessar um meio prismático.</p>
+        <img src="assets/imagem.png" alt="Dispersão Luminosa por Refração da Luz" class="featured-image">
+        <p class="caption">Figura 1: Representação experimental da luz branca incidindo no prisma e se decompondo em suas componentes espectrais.</p>
+      </div>
+    </section>
+
+    <section id="fundamentacao" class="card-section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2>Lei de Snell-Descartes e o Índice de Refração</h2>
+        <div class="divider"></div>
+      </div>
+      <p>
+        O desvio sofrido pela luz ao mudar de meio é matematicamente descrito pela <strong>Lei de Snell-Descartes</strong>:
+      </p>
+      
+      <div class="formula-box">
+        <code>n₁ · sin(θ₁) = n₂ · sin(θ₂)</code>
+      </div>
+
+      <div class="grid-2col" style="margin-top: 24px;">
+        <div class="info-box">
+          <h4>Índice de Refração Absoluto (n)</h4>
+          <p>É a razão entre a velocidade da luz no vácuo (c) e a velocidade da luz no meio analisado (v):</p>
+          <div class="mini-formula">n = c / v</div>
+        </div>
+        <div class="info-box">
+          <h4>Por que as cores se separam?</h4>
+          <p>O índice de refração de um material varia conforme o comprimento de onda ($\lambda$). A luz violeta tem menor comprimento de onda e sofre **maior refração** (maior desvio) do que a luz vermelha.</p>
+        </div>
       </div>
     </section>
 
     <section id="simulacao" class="card-section">
       <div class="section-header">
-        <h2>03. Simulação Interativa</h2>
+        <span class="section-num">04</span>
+        <h2>Simulação Interativa do Prisma</h2>
         <div class="divider"></div>
       </div>
-      <p class="section-desc">Ajuste o ângulo de incidência do feixe luminoso para observar a decomposição do espectro visível no prisma de vidro.</p>
-      
+      <p class="section-desc">
+        Ajuste o ângulo do feixe incidente usando o controle abaixo para observar a mudança no desvio da luz e no espectro visível.
+      </p>
+
       <div class="simulation-container">
-        <canvas id="prismCanvas" width="700" height="350"></canvas>
+        <canvas id="prismCanvas" width="720" height="360"></canvas>
         <div class="controls">
-          <label for="angleSlider">Ângulo do Feixe Incidente: <span id="angleVal">45°</span></label>
+          <label for="angleSlider">Ângulo de Incidência: <strong id="angleVal">45°</strong></label>
           <input type="range" id="angleSlider" min="15" max="75" value="45">
         </div>
       </div>
     </section>
 
-    <section id="aplicacoes" class="card-section">
+    <section id="espectro" class="card-section">
       <div class="section-header">
-        <h2>04. Fenômenos e Aplicações</h2>
+        <span class="section-num">05</span>
+        <h2>Comportamento das Cores no Espectro Visível</h2>
         <div class="divider"></div>
       </div>
-      <div class="grid-3col">
-        <div class="info-card">
-          <h4>O Arco-Íris</h4>
-          <p>Gotas de chuva funcionam como pequenos prismas naturais, refratando, refletindo e dispersando a luz solar para criar o espectro visível no céu.</p>
-        </div>
-        <div class="info-card">
-          <h4>Espectroscopia</h4>
-          <p>Método analítico essencial na astronomia e química para identificar a composição de estrelas e substâncias através do seu espectro de emissão.</p>
-        </div>
-        <div class="info-card">
-          <h4>Lentes e Aberração</h4>
-          <p>Um desafio no design de lentes fotográficas e telescópios, onde a dispersão causa borrões coloridos ("aberração cromática"), corrigidos por conjuntos de lentes acromáticas.</p>
-        </div>
+      <p>
+        Tabela comparativa mostrando o comprimento de onda, a frequência e o grau de desvio sofrido por cada componente da luz branca:
+      </p>
+
+      <div class="table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Cor</th>
+              <th>Comprimento de Onda ($\lambda$)</th>
+              <th>Frequência ($f$)</th>
+              <th>Grau de Desvio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="color-dot red"></span> Vermelho</td>
+              <td>~ 700 nm</td>
+              <td>Baixa (~ 430 THz)</td>
+              <td>Mínimo Desvio</td>
+            </tr>
+            <tr>
+              <td><span class="color-dot orange"></span> Laranja</td>
+              <td>~ 620 nm</td>
+              <td>Média-Baixa</td>
+              <td>Pequeno Desvio</td>
+            </tr>
+            <tr>
+              <td><span class="color-dot yellow"></span> Amarelo</td>
+              <td>~ 580 nm</td>
+              <td>Média</td>
+              <td>Desvio Intermediário</td>
+            </tr>
+            <tr>
+              <td><span class="color-dot green"></span> Verde</td>
+              <td>~ 530 nm</td>
+              <td>Média-Alta</td>
+              <td>Desvio Intermediário</td>
+            </tr>
+            <tr>
+              <td><span class="color-dot blue"></span> Azul</td>
+              <td>~ 470 nm</td>
+              <td>Alta</td>
+              <td>Grande Desvio</td>
+            </tr>
+            <tr>
+              <td><span class="color-dot violet"></span> Violeta</td>
+              <td>~ 400 nm</td>
+              <td>Muito Alta (~ 750 THz)</td>
+              <td>Máximo Desvio</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -113,8 +198,8 @@
 
   <footer>
     <div class="container footer-content">
-      <p>Projeto Acadêmico de Física • Dispersão Luminosa por Refração</p>
-      <p class="credits">Desenvolvido para publicação via GitHub Pages.</p>
+      <p><strong>Trabalho de Física / Óptica Física</strong> — Dispersão Luminosa por Refração</p>
+      <p class="sub-footer">Desenvolvido com HTML5, CSS3 e JavaScript puro para GitHub Pages.</p>
     </div>
   </footer>
 
