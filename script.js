@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, observerOptions);
 
-  // Seleciona todas as seções e elementos para animar
+  // Mapeamento atualizado para incluir os novos elementos e as novas seções
   const animatableElements = document.querySelectorAll(
-    ".card-section, .hero-content, .info-box, .data-table"
+    ".card-section, .hero-content, .info-box, .data-table, .reference-item"
   );
 
   animatableElements.forEach(el => {
@@ -194,10 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Listener do Slider
   slider.addEventListener("input", () => {
-    // Redesenha instantaneamente para manter responsivo
     angleVal.textContent = `${slider.value}°`;
   });
 
   // Iniciar Animação do Canvas
   render();
 });
+
