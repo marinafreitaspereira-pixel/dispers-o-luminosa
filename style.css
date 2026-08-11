@@ -190,6 +190,235 @@ h3 {
 }
 
 p {
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+p strong {
+  font-weight: 600;
+}
+
+/* Caixas de Informação Internas (Usadas em Fundamentação e Aplicações) */
+.info-box {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.info-box h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.info-box p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Fórmulas e Elementos de Código */
+.formula-box {
+  background-color: var(--border-dark);
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-family: monospace;
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+
+.mini-formula {
+  font-family: monospace;
+  font-weight: bold;
+  background: var(--bg-accent);
+  padding: 6px 12px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-top: 8px;
+  color: var(--text-dark);
+}
+
+/* Elementos de Imagem e Simulação */
+.image-wrapper {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.featured-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.caption {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.simulation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+canvas {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  max-width: 100%;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Tabelas */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 24px;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th, .data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.color-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Cores do Espectro */
+.red { background-color: #ff4d4d; }
+.orange { background-color: #ff944d; }
+.yellow { background-color: #e6b800; }
+.green { background-color: #2db300; }
+.blue { background-color: #1a75ff; }
+.violet { background-color: #9933ff; }
+
+/* =========================================================
+   NOVAS ADIÇÕES PARA AS SEÇÕES ADICIONADAS
+========================================================= */
+
+/* Conclusão */
+.conclusion-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-dark);
+}
+
+/* Referências Bibliográficas */
+.references-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reference-item {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.6;
+  padding-left: 12px;
+  border-left: 2px solid var(--text-muted);
+}
+
+.reference-item .ref-author {
+  font-weight: 600;
+}
+
+.reference-item .ref-title {
+  font-style: italic;
+}
+
+.reference-link {
+  color: var(--text-muted);
+  text-decoration: underline;
+  font-size: 0.88rem;
+  display: inline-block;
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.reference-link:hover {
+  color: var(--text-dark);
+}
+
+/* =========================================================
+   FOOTER (RODAPÉ)
+========================================================= */
+footer {
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.footer-content p {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.sub-footer {
+  font-size: 0.8rem;
+  color: var(--text-muted) !important;
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 768px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .card-section {
+    padding: 24px;
+  }
+}
+
   color: var(--text-muted);
   margin-bottom: 14px;
 }
