@@ -1,173 +1,172 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-  // ==========================================
-  // 1. EFEITO DE ROLAGEM NA NAVBAR (HEADER)
-  // ==========================================
+
+  // =========================================================
+  // 1. EFEITO DINÂMICO NA NAVBAR AO ROLAR A PÁGINA
+  // =========================================================
   const navbar = document.querySelector(".navbar");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
-      navbar.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.08)";
-      navbar.style.padding = "10px 0";
+      navbar.style.boxShadow = "0 10px 30px rgba(0, 0, 0, 0.05)";
+      navbar.style.padding = "8px 0";
     } else {
       navbar.style.boxShadow = "none";
       navbar.style.padding = "14px 0";
     }
   });
 
-  // ==========================================
-  // 2. ANIMAÇÃO DE SURGIMENTO AO ROLAR (SCROLL REVEAL)
-  // ==========================================
+  // =========================================================
+  // 2. ANIMAÇÃO SCROLL REVEAL (SURGIMENTO GRADUAL DOS CARDS)
+  // =========================================================
   const observerOptions = {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -40px 0px"
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("reveal-active");
-        observer.unobserve(entry.target); // Anima apenas uma vez
+        observer.unobserve(entry.target); // Anima apenas uma vez ao rolar
       }
     });
   }, observerOptions);
 
-  // Mapeamento atualizado para incluir os novos elementos e as novas seções
   const animatableElements = document.querySelectorAll(
-    ".card-section, .hero-content, .info-box, .data-table, .reference-item"
+    ".card-section, .info-box, .data-table, .reference-item"
   );
-
+  
   animatableElements.forEach(el => {
     el.classList.add("reveal-init");
     revealObserver.observe(el);
   });
 
-  // ==========================================
-  // 3. EFEITO INTERATIVO TILT 3D NOS CARDS
-  // ==========================================
-  const cards = document.querySelectorAll(".info-box, .card-section");
-
+  // =========================================================
+  // 3. EFEITO INTERATIVO TILT 3D NOS ELEMENTOS VISUAIS
+  // =========================================================
+  const cards = document.querySelectorAll(".info-box, .card-section:not(#simulacao)");
+  
   cards.forEach(card => {
     card.addEventListener("mousemove", (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
+      
+      const rotateX = ((y - centerY) / centerY) * -3;
+      const rotateY = ((x - centerX) / centerX) * 3;
 
-      const rotateX = ((y - centerY) / centerY) * -4; // grau de inclinação X
-      const rotateY = ((x - centerX) / centerX) * 4;  // grau de inclinação Y
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      card.style.transition = "transform 0.1s ease-out";
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      card.style.transition = "transform 0.05s ease-out";
     });
 
     card.addEventListener("mouseleave", () => {
       card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)";
-      card.style.transition = "transform 0.5s ease-out";
+      card.style.transition = "transform 0.4s ease-out";
     });
   });
 
-  // ==========================================
-  // 4. SIMULADOR DO PRISMA COM PARTICULAS DE LUZ
-  // ==========================================
+  // =========================================================
+  // 4. MECANISMO FÍSICO DO SIMULADOR DO PRISMA (CANVAS)
+  // =========================================================
   const canvas = document.getElementById("prismCanvas");
   const ctx = canvas.getContext("2d");
   const slider = document.getElementById("angleSlider");
   const angleVal = document.getElementById("angleVal");
 
   let animationFrameId;
-  let pulse = 0; // Variável para pulsar a luz suavemente
+  let pulse = 0;
 
-  // Partículas para o efeito da luz
-  const particles = Array.from({ length: 25 }, () => ({
-    x: Math.random() * 200,
+  // Geração de partículas de luz fluidas
+  const particles = Array.from({ length: 30 }, () => ({
     progress: Math.random(),
-    speed: 0.005 + Math.random() * 0.01,
+    speed: 0.004 + Math.random() * 0.008,
     colorIndex: Math.floor(Math.random() * 6)
   }));
 
-  function render() {
+  function renderSimulation() {
     const angle = parseInt(slider.value);
     angleVal.textContent = `${angle}°`;
 
-    pulse += 0.03;
-    const glow = Math.sin(pulse) * 3 + 8; // Efeito de brilho pulsante
+    pulse += 0.04;
+    const glow = Math.sin(pulse) * 2 + 6; // Brilho pulsante suave
 
-    // Limpar o canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Configurações do Prisma (Triângulo Central)
+    // Geometria e Coordenadas do Prisma Central
     const centerX = 360;
-    const centerY = 210;
-    const prismSize = 130;
+    const centerY = 190;
+    const prismSize = 120;
 
     const p1 = { x: centerX, y: centerY - prismSize };
     const p2 = { x: centerX - prismSize, y: centerY + prismSize / 1.5 };
     const p3 = { x: centerX + prismSize, y: centerY + prismSize / 1.5 };
 
-    // 1. Feixe de Luz Incidente (Luz Branca)
-    const startX = 60;
-    const startY = 320 - (angle * 2.6);
-    const hitX = centerX - 45;
-    const hitY = centerY + 10;
+    // Cálculo dos pontos dinâmicos do feixe incidente com base no slider
+    const startX = 40;
+    const startY = 300 - (angle * 2.4);
+    const hitX = centerX - 42;
+    const hitY = centerY + 12;
 
+    // Renderização do Feixe Incidente de Luz Branca
     ctx.beginPath();
     ctx.moveTo(startX, startY);
     ctx.lineTo(hitX, hitY);
     ctx.strokeStyle = "#FFFFFF";
     ctx.lineWidth = 4;
-    ctx.shadowBlur = glow + 4;
+    ctx.shadowBlur = glow + 2;
     ctx.shadowColor = "#FFFFFF";
     ctx.stroke();
 
-    // 2. Desenhar o Prisma de Vidro com Vidro Refratativo
+    // Renderização do Prisma de Vidro Semi-Transparente
+    ctx.shadowBlur = 0;
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
     ctx.lineTo(p3.x, p3.y);
     ctx.closePath();
-    ctx.fillStyle = "rgba(255, 255, 255, 0.06)";
-    ctx.strokeStyle = `rgba(255, 255, 255, ${0.3 + Math.sin(pulse) * 0.1})`;
+    ctx.fillStyle = "rgba(255, 255, 255, 0.04)";
+    ctx.strokeStyle = `rgba(255, 255, 255, ${0.25 + Math.sin(pulse) * 0.05})`;
     ctx.lineWidth = 2;
     ctx.fill();
     ctx.stroke();
 
-    // 3. Trajeto da luz dentro do Prisma
-    const exitX = centerX + 40;
-    const exitY = centerY - 5;
+    // Trajeto da luz interna refratada dentro do vidro
+    const exitX = centerX + 38;
+    const exitY = centerY - 6;
 
     ctx.beginPath();
     ctx.moveTo(hitX, hitY);
     ctx.lineTo(exitX, exitY);
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.6)";
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.5)";
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // 4. Decomposição das Cores (Espectro)
+    // Configuração Matemática e Física das Cores do Espectro Refratado
     const colors = [
-      { hex: "#FF4D4D", offset: 38 }, // Vermelho
-      { hex: "#FFA64D", offset: 26 }, // Laranja
-      { hex: "#FFFF4D", offset: 14 }, // Amarelo
-      { hex: "#4DFF4D", offset: 2 },  // Verde
-      { hex: "#4D80FF", offset: -10 },// Azul
-      { hex: "#B34DFF", offset: -22 } // Violeta
+      { hex: "#FF4D4D", offset: 35 }, // Vermelho (Menor desvio)
+      { hex: "#FFA64D", offset: 23 }, // Laranja
+      { hex: "#FFFF4D", offset: 11 }, // Amarelo
+      { hex: "#4DFF4D", offset: -1 }, // Verde
+      { hex: "#4D80FF", offset: -13 },// Azul
+      { hex: "#B34DFF", offset: -25 } // Violeta (Maior desvio)
     ];
 
     colors.forEach((color, index) => {
       const endX = canvas.width - 40;
-      const endY = exitY + color.offset + (angle - 45) * 0.7;
+      const endY = exitY + color.offset + (angle - 45) * 0.8;
 
+      // Renderização de cada raio espectral individual separado por frequência
       ctx.beginPath();
       ctx.moveTo(exitX, exitY);
       ctx.lineTo(endX, endY);
       ctx.strokeStyle = color.hex;
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 3.5;
       ctx.shadowBlur = glow;
       ctx.shadowColor = color.hex;
       ctx.stroke();
 
-      // Partículas viajando ao longo dos feixes refratados
+      // Renderização e cálculo das partículas dinâmicas no espectro
       particles.forEach(p => {
         if (p.colorIndex === index) {
           p.progress += p.speed;
@@ -177,9 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const py = exitY + (endY - exitY) * p.progress;
 
           ctx.beginPath();
-          ctx.arc(px, py, 2, 0, Math.PI * 2);
+          ctx.arc(px, py, 1.8, 0, Math.PI * 2);
           ctx.fillStyle = "#FFFFFF";
-          ctx.shadowBlur = 10;
+          ctx.shadowBlur = 6;
           ctx.shadowColor = color.hex;
           ctx.fill();
         }
@@ -187,17 +186,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     ctx.shadowBlur = 0;
-
-    // Loop contínuo de animação
-    animationFrameId = requestAnimationFrame(render);
+    animationFrameId = requestAnimationFrame(renderSimulation);
   }
 
-  // Listener do Slider
+  // Listener para o Controle Deslizante
   slider.addEventListener("input", () => {
     angleVal.textContent = `${slider.value}°`;
   });
 
-  // Iniciar Animação do Canvas
-  render();
+  // Inicializa o laço gráfico da simulação
+  renderSimulation();
 });
-
