@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dispersão Luminosa e Refração da Luz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <span class="logo">Óptica Física</span>
+      <nav>
+        <ul>
+          <li><a href="#conceito">O Conceito</a></li>
+          <li><a href="#imagem-secao">Esquema</a></li>
+          <li><a href="#simulacao">Simulador</a></li>
+          <li><a href="#aplicacoes">Aplicações</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <p class="tagline">Física & Fenômenos Ópticos</p>
+      <h1>Dispersão Luminosa por Refração da Luz</h1>
+      <p class="subtitle">Uma análise elegante do comportamento da luz policromática ao atravessar meios materiais com diferentes índices de refração.</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <section id="conceito" class="card-section">
+      <div class="section-header">
+        <h2>01. O Conceito Fundamental</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-2col">
+        <div>
+          <h3>O que é Refração?</h3>
+          <p>A <strong>refração</strong> ocorre quando a luz muda de meio de propagação (como do ar para o vidro), sofrendo uma variação na sua velocidade e, consequentemente, uma desviação no seu trajeto original.</p>
+          <p>Esse comportamento é regido pela <em>Lei de Snell-Descartes</em>:</p>
+          <div class="formula-box">
+            <code>n₁ · sin(θ₁) = n₂ · sin(θ₂)</code>
+          </div>
+        </div>
+        <div>
+          <h3>A Origem da Dispersão</h3>
+          <p>A luz branca (policromática) é composta por uma mistura de diversas frequências (cores). Cada cor possui um comprimento de onda diferente e interage de forma única com o material:</p>
+          <ul class="styled-list">
+            <li><strong>Luz Vermelha:</strong> Menor frequência, maior velocidade no meio, sofrendo <em>menor desvio</em>.</li>
+            <li><strong>Luz Violeta:</strong> Maior frequência, menor velocidade no meio, sofrendo <em>maior desvio</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="imagem-secao" class="card-section highlight-section">
+      <div class="section-header">
+        <h2>02. Demonstração Visual do Experimento</h2>
+        <div class="divider"></div>
+      </div>
+      
+      <div class="image-wrapper">
+        <img src="imagem-experimento.jpg" alt="Esquema da Dispersão Luminosa em um Prisma" class="featured-image">
+        <p class="caption">Figura 1: Representação gráfica do desfeixe da luz branca ao atravessar um meio prismático.</p>
+      </div>
+    </section>
+
+    <section id="simulacao" class="card-section">
+      <div class="section-header">
+        <h2>03. Simulação Interativa</h2>
+        <div class="divider"></div>
+      </div>
+      <p class="section-desc">Ajuste o ângulo de incidência do feixe luminoso para observar a decomposição do espectro visível no prisma de vidro.</p>
+      
+      <div class="simulation-container">
+        <canvas id="prismCanvas" width="700" height="350"></canvas>
+        <div class="controls">
+          <label for="angleSlider">Ângulo do Feixe Incidente: <span id="angleVal">45°</span></label>
+          <input type="range" id="angleSlider" min="15" max="75" value="45">
+        </div>
+      </div>
+    </section>
+
+    <section id="aplicacoes" class="card-section">
+      <div class="section-header">
+        <h2>04. Fenômenos e Aplicações</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="grid-3col">
+        <div class="info-card">
+          <h4>O Arco-Íris</h4>
+          <p>Gotas de chuva funcionam como pequenos prismas naturais, refratando, refletindo e dispersando a luz solar para criar o espectro visível no céu.</p>
+        </div>
+        <div class="info-card">
+          <h4>Espectroscopia</h4>
+          <p>Método analítico essencial na astronomia e química para identificar a composição de estrelas e substâncias através do seu espectro de emissão.</p>
+        </div>
+        <div class="info-card">
+          <h4>Lentes e Aberração</h4>
+          <p>Um desafio no design de lentes fotográficas e telescópios, onde a dispersão causa borrões coloridos ("aberração cromática"), corrigidos por conjuntos de lentes acromáticas.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>Projeto Acadêmico de Física • Dispersão Luminosa por Refração</p>
+      <p class="credits">Desenvolvido para publicação via GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
