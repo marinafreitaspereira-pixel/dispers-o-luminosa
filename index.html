@@ -72,22 +72,39 @@
         </div>
     </section>
 
-    <!-- Seção 4: Simulador Interativo -->
+       <!-- Seção 4: Simulador Interativo Avançado -->
     <section id="simulador" class="animar-subir">
-        <h2>Simulador Óptico Digital</h2>
-        <p>Utilize os controles abaixo para interagir de forma ativa com o experimento. Clique no botão de disparo para emitir o feixe luminoso contra o modelo geométrico e observar a divisão cromática em tempo real.</p>
+        <h2>Laboratório Óptico Interativo</h2>
+        <p>Explore o comportamento físico da luz em tempo real. Ajuste o ângulo de incidência do feixe luminoso através dos controles ou clique diretamente no painel para mover o laser. Observe como o índice de refração altera dinamicamente o desvio angular de cada espectro cromático.</p>
         
-        <div class="interactive-sim">
-            <div class="controls-sim">
-                <button class="btn-sim" onclick="dispararLaser()">Disparar Luz Branca</button>
-                <button class="btn-sim" onclick="resetarLaser()">Resetar Emissão</button>
+        <div class="interactive-sim-advanced">
+            <div class="painel-controles">
+                <div class="controle-grupo">
+                    <label for="slider-angulo">Ângulo de Incidência:</label>
+                    <input type="range" id="slider-angulo" min="-45" max="45" value="0">
+                    <span id="val-angulo">0°</span>
+                </div>
+                <div class="controle-grupo">
+                    <label for="select-meio">Material do Prisma:</label>
+                    <select id="select-meio">
+                        <option value="1.52">Vidro Crown (n = 1.52)</option>
+                        <option value="1.66">Vidro Flint Pesado (n = 1.66)</option>
+                        <option value="2.42">Diamante Puro (n = 2.42)</option>
+                    </select>
+                </div>
+                <div class="botoes-grupo">
+                    <button class="btn-lab" id="btn-comprimento">Alternar Partículas</button>
+                    <button class="btn-lab" id="btn-reset-lab">Resetar Alinhamento</button>
+                </div>
             </div>
-            <div class="prism-graphic">
-                <!-- Efeito visual simulado controlado pelo JavaScript -->
-                <div id="espectro" class="espectro-visivel"></div>
+
+            <!-- Tela de Renderização Física -->
+            <div class="canvas-container">
+                <canvas id="canvas-optica"></canvas>
             </div>
         </div>
     </section>
+
 
     <!-- Seção 5: Conclusão -->
     <section id="conclusao" class="animar-subir">
