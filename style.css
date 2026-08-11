@@ -412,3 +412,78 @@ footer p {
     font-family: monospace;
 }
 
+/* Estilização do Infográfico Automático (Sem Imagens Externas) */
+.grafico-prisma-css {
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    position: relative;
+    background: #111112;
+    border-radius: 4px;
+    border: 1px solid #222;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prisma-triangulo {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 104px solid rgba(255, 255, 255, 0.08);
+    position: absolute;
+    z-index: 2;
+}
+
+.prisma-triangulo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 58px solid transparent;
+    border-right: 58px solid transparent;
+    border-bottom: 100px solid #111112;
+    left: -58px;
+    top: 2px;
+}
+
+.raio-branco {
+    position: absolute;
+    width: 150px;
+    height: 3px;
+    background: rgba(255,255,255,0.9);
+    left: 40px;
+    top: 140px;
+    transform: rotate(18deg);
+    z-index: 1;
+    box-shadow: 0 0 10px #fff;
+}
+
+.arco-iris-leque {
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    width: 220px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.cor-raio {
+    height: 3px;
+    width: 100%;
+    margin-bottom: 2px;
+    opacity: 0.8;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.r-vermelho { background: #ff3333; color: #ff3333; transform: rotate(-5deg); margin-top: 5px; }
+.r-laranja  { background: #ff9933; color: #ff9933; transform: rotate(-2deg); }
+.r-amarelo  { background: #ffff33; color: #ffff33; transform: rotate(1deg); }
+.r-verde    { background: #33cc33; color: #33cc33; transform: rotate(4deg); }
+.r-azul     { background: #3399ff; color: #3399ff; transform: rotate(7deg); }
+.r-anil     { background: #6600ff; color: #6600ff; transform: rotate(10deg); }
+.r-violeta  { background: #9900cc; color: #9900cc; transform: rotate(13deg); }
