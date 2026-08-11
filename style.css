@@ -1,12 +1,6 @@
 /* =========================================================
-   PALETA NEUTRA SOFISTICADA
-   #121518 - Grafite Principal
-   #2a2f35 - Cinza Escuro de Suporte
-   #6e7681 - Cinza Médio (Texto Secundário)
-   #e9e7e2 - Bege Fumaça
-   #f8f7f4 - Fundo Off-White
+   PALETA NEUTRA SOFISTICADA & ESTILOS GERAIS
 ========================================================= */
-
 :root {
   --bg-main: #f8f7f4;
   --bg-card: #ffffff;
@@ -52,6 +46,7 @@ body {
   border-bottom: 1px solid var(--border-color);
   z-index: 1000;
   padding: 14px 0;
+  transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -143,6 +138,7 @@ nav a:hover {
   padding: 36px;
   margin-bottom: 32px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section-header {
@@ -198,12 +194,13 @@ p strong {
   font-weight: 600;
 }
 
-/* Caixas de Informação Internas (Usadas em Fundamentação e Aplicações) */
+/* Caixas de Informação Internas */
 .info-box {
   background-color: var(--bg-main);
   border: 1px solid var(--border-color);
   border-radius: 6px;
   padding: 20px;
+  transition: transform 0.1s ease-out;
 }
 
 .info-box h4 {
@@ -220,7 +217,7 @@ p strong {
   line-height: 1.6;
 }
 
-/* Fórmulas e Elementos de Código */
+/* Fórmulas */
 .formula-box {
   background-color: var(--border-dark);
   color: #ffffff;
@@ -271,7 +268,7 @@ p strong {
 }
 
 canvas {
-  background: #ffffff;
+  background: #1a1d20; /* Fundo escuro no canvas para destacar o brilho das cores */
   border: 1px solid var(--border-color);
   border-radius: 6px;
   max-width: 100%;
@@ -284,6 +281,16 @@ canvas {
   gap: 8px;
   width: 100%;
   max-width: 300px;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.controls input[type="range"] {
+  width: 100%;
+  accent-color: var(--text-dark);
 }
 
 /* Tabelas */
@@ -328,18 +335,13 @@ canvas {
 .blue { background-color: #1a75ff; }
 .violet { background-color: #9933ff; }
 
-/* =========================================================
-   NOVAS ADIÇÕES PARA AS SEÇÕES ADICIONADAS
-========================================================= */
-
-/* Conclusão */
+/* Seções de Avaliação (Conclusão e Referências) */
 .conclusion-text {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: var(--text-dark);
+  margin-bottom: 16px;
 }
 
-/* Referências Bibliográficas */
 .references-list {
   list-style: none;
   padding: 0;
@@ -364,22 +366,19 @@ canvas {
   font-style: italic;
 }
 
-.reference-link {
-  color: var(--text-muted);
-  text-decoration: underline;
-  font-size: 0.88rem;
-  display: inline-block;
-  margin-top: 4px;
-  transition: color 0.2s ease;
+/* Animações Fluidas de Scroll Reveal */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
 }
 
-.reference-link:hover {
-  color: var(--text-dark);
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* =========================================================
-   FOOTER (RODAPÉ)
-========================================================= */
+/* Footer */
 footer {
   border-top: 1px solid var(--border-color);
   padding: 40px 0;
@@ -398,211 +397,20 @@ footer {
   color: var(--text-muted) !important;
 }
 
-/* Responsividade básica para telas menores */
+/* Responsividade básica */
 @media (max-width: 768px) {
   .grid-2col {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
   .nav-container {
     flex-direction: column;
     gap: 12px;
   }
-  
   .hero h1 {
     font-size: 2rem;
   }
-  
   .card-section {
     padding: 24px;
   }
-}
-
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-
-/* Área da Imagem */
-.image-wrapper {
-  background-color: var(--bg-accent);
-  border: 1px dashed var(--border-color);
-  padding: 20px;
-  border-radius: 6px;
-  text-align: center;
-}
-
-.featured-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-  display: block;
-  margin: 0 auto;
-}
-
-.caption {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 12px;
-  margin-bottom: 0;
-  font-style: italic;
-}
-
-/* Fórmulas e Caixas Informativas */
-.formula-box {
-  background-color: #121518;
-  color: #ffffff;
-  padding: 18px;
-  border-radius: 6px;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-}
-
-.info-box {
-  background-color: var(--bg-accent);
-  padding: 20px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-}
-
-.info-box h4 {
-  font-family: var(--font-serif);
-  margin-bottom: 8px;
-}
-
-.mini-formula {
-  font-family: monospace;
-  background: #ffffff;
-  padding: 6px 12px;
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid var(--border-color);
-  font-weight: bold;
-  margin-top: 8px;
-}
-
-/* Simulador Canvas */
-.simulation-container {
-  background-color: #121518;
-  padding: 24px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-canvas {
-  background-color: #0b0d0e;
-  border-radius: 4px;
-  max-width: 100%;
-}
-
-.controls {
-  margin-top: 18px;
-  color: #f8f7f4;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-input[type=range] {
-  accent-color: #ffffff;
-  cursor: pointer;
-}
-
-/* Tabela */
-.table-wrapper {
-  overflow-x: auto;
-  margin-top: 16px;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 0.92rem;
-}
-
-.data-table th, .data-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.data-table th {
-  background-color: var(--bg-accent);
-  font-weight: 600;
-  color: var(--text-dark);
-}
-
-.color-dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin-right: 6px;
-}
-.red { background-color: #ff4d4d; }
-.orange { background-color: #ffa64d; }
-.yellow { background-color: #ffff4d; }
-.green { background-color: #4dff4d; }
-.blue { background-color: #4d80ff; }
-.violet { background-color: #b34dff; }
-
-/* Rodapé */
-footer {
-  border-top: 1px solid var(--border-color);
-  padding: 36px 0;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  margin-top: 40px;
-}
-
-.sub-footer {
-  font-size: 0.8rem;
-  margin-top: 4px;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .grid-2col {
-    grid-template-columns: 1fr;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  nav ul {
-    display: none; /* Simplificação para telas pequenas */
-  }
-
-  .card-section {
-    padding: 24px;
-  }
-}
-/* ==========================================
-   ESTILOS DAS ANIMAÇÕES DE ROLAGEM (SCROLL REVEAL)
-========================================== */
-.navbar {
-  transition: padding 0.3s ease, box-shadow 0.3s ease;
-}
-
-.reveal-init {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card-section, .info-box {
-  will-change: transform, opacity;
-}
 }
